@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <conio.h>
 #include <Windows.h>
+#include "nuevoArchivo.h"
 
 using namespace std;
 
@@ -33,7 +34,7 @@ int main()
  }
 
  void Marco() {
-	 system("clear");
+	 system("cls");
 	 for (int i = 0; i < 79; i++)
 	 {
 		 gotoxy(0 + i, 0);
@@ -54,6 +55,8 @@ int main()
  }
 
  void Menu() {
+	 nuevoArchivo nuevo;
+
 	 do
 	 {
 
@@ -75,6 +78,7 @@ int main()
 			 //CREAR ARCHIVO
 			 system("cls");
 			 cout << "ARCHIVO CREADO";
+			 nuevo.archivo();
 			 break;
 		 case 2:
 			 //CREAR ARCHIVO
@@ -91,6 +95,7 @@ int main()
 			 return;
 			 break;
 		 default:
+			 opcion = 0;
 			 break;
 		 }
 

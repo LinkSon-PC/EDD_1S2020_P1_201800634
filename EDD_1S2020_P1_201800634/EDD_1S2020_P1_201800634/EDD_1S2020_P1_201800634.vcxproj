@@ -153,6 +153,9 @@
   <ItemGroup>
     <ClCompile Include="EDD_1S2020_P1_201800634.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="nuevoArchivo.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
