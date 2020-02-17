@@ -77,8 +77,9 @@ int main()
 		 case 1:
 			 //CREAR ARCHIVO
 			 system("cls");
-			 cout << "ARCHIVO CREADO";
+
 			 nuevo.archivo();
+			 nuevo.~nuevoArchivo();
 			 break;
 		 case 2:
 			 //CREAR ARCHIVO
@@ -119,7 +120,7 @@ int main()
 
 		 do
 		 {
-			 Sleep(100);
+			 Sleep(500);
 			 if (GetAsyncKeyState(VK_UP))//ARIBA
 			 {
 			 gotoxy(16, 14 + posicion);

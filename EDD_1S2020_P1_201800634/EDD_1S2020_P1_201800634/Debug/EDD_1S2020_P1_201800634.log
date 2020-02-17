@@ -1,3 +1,8 @@
 ﻿  EDD_1S2020_P1_201800634.cpp
-C:\Users\Home\Documents\GitHub\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634.cpp(110,8): warning C4101:  '_tecla': variable local sin referencia
+C:\Users\Home\Documents\GitHub\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\nuevoArchivo.h(346,20): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\Home\Documents\GitHub\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\nuevoArchivo.h(384,21): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\Home\Documents\GitHub\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\nuevoArchivo.h(406,25): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\Home\Documents\GitHub\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\nuevoArchivo.h(409,15): warning C4553:  "==": el resultado de la expresión no se usa. ¿Quiso decir "="?
+C:\Users\Home\Documents\GitHub\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\nuevoArchivo.h(418,25): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\Home\Documents\GitHub\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634.cpp(111,8): warning C4101:  '_tecla': variable local sin referencia
   EDD_1S2020_P1_201800634.vcxproj -> C:\Users\Home\Documents\GitHub\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\Debug\EDD_1S2020_P1_201800634.exe
