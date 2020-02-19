@@ -5,13 +5,20 @@
 #include <string>
 #include <stdio.h>
 #include <conio.h>
+#include <stdlib.h>
 #include <Windows.h>
+#include <fstream>
+#include "LCreciente.h"
 #include "nuevoArchivo.h"
 
 using namespace std;
 
 void gotoxy(int,int);
 void Marco(void);
+void Abrir(void);
+
+nuevoArchivo nuevo;
+LCreciente reciente;
 
 void Menu(void);
 int OpcionMenu(const char* s[]);
@@ -40,11 +47,11 @@ int main()
 		 gotoxy(0 + i, 0);
 		 printf("%c", 219);
 
-		 gotoxy(0 + i, 23);
+		 gotoxy(0 + i, 24);
 		 printf("%c", 219);
 	 }
 
-	 for (int i = 0; i < 23; i++)
+	 for (int i = 0; i < 24; i++)
 	 {
 		 gotoxy(0, 0+i);
 		 printf("%c", 219);
@@ -55,11 +62,10 @@ int main()
  }
 
  void Menu() {
-	 nuevoArchivo nuevo;
 
 	 do
 	 {
-
+		 Marco();
 		 gotoxy(20, 5); printf("UNIVERSIDAD DE SAN CARLOS DE GUATEMALA");
 		 gotoxy(20, 6); printf("FACULTAD DE INGENIERIA");
 		 gotoxy(20, 7); printf("ESTRUCTURA DE DATOS");
@@ -82,14 +88,16 @@ int main()
 			 nuevo.~nuevoArchivo();
 			 break;
 		 case 2:
-			 //CREAR ARCHIVO
-			 system("clls");
-			 cout << "ABRIR ARCHIVO";
+			 //ABRIR ARCHIVO
+			 system("cls");
+			 Abrir();
+			 			 
 			 break;
 		 case 3:
-			 //CREAR ARCHIVO
+			 //VER RECIENTES
 			 system("cls");
-			 cout << "RECIENTES";
+			 reciente.Mostrar();
+			 Marco();
 			 break;
 		 case 4:
 			 //SALIR
@@ -146,4 +154,43 @@ int main()
 		 } while (!GetAsyncKeyState(VK_RETURN));
 		 return posicion;
 
+ }
+
+ void Abrir(){
+	 Marco();
+
+	 ifstream archivo;
+	 string texto;
+
+	 string direccion;
+
+	 char marco[] = " ESCRIBA DIRECCION DEL ARCHIVO  ";
+	 for (int i = 0; i < sizeof(marco); i++)
+	 {
+		 cout << marco[i];
+		 gotoxy(10 + i, 10);
+	 }
+	 gotoxy(11, 11);
+
+	 cin >> direccion;
+	 archivo.open(direccion.c_str(), ios::in);
+
+	 if (archivo.fail())
+	 {
+		 cout << endl << "DIRECCION NO ENCONTRADA";
+		 archivo.close();
+	 }
+	 else
+	 {
+		 reciente.Agregar(direccion);
+		 system("cls");
+		 while (!archivo.eof())
+		 {
+			 getline(archivo, texto);
+		 }
+		 archivo.close();
+		 nuevo.AbrirArchivo(texto);
+		 nuevo.~nuevoArchivo();
+	 }
+	 fflush(stdin);
  }

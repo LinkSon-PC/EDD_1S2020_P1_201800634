@@ -154,6 +154,7 @@
     <ClCompile Include="EDD_1S2020_P1_201800634.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="LCreciente.h" />
     <ClInclude Include="nuevoArchivo.h" />
     <ClInclude Include="PilaBR.h" />
   </ItemGroup>
