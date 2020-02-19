@@ -40,9 +40,10 @@ public:
 	
 	void AbrirArchivo(string);
 
+	void Guardar();
+
 	void Reportes();
 	void ReporteLDE();
-	void ReportePila();
 
 	//void borrarLetra(void);
 };
@@ -145,8 +146,7 @@ void nuevoArchivo::agregarLetra(char _letra, int _X, int _Y) {
 		gotoxy(aux->X, aux->Y);
 		aux = aux->post;
 	}
-
-	gotoxy(X, Y);
+	Marco();
 }
 
 void nuevoArchivo::gotoxy(int x, int y) {
@@ -160,13 +160,13 @@ void nuevoArchivo::gotoxy(int x, int y) {
 
 
 void nuevoArchivo::Marco(void) {
-	system("cls");
 	char marco[] = " ^w (GUARDAR Y REMPLAZAR)     ^C (REPORTES)   ^S (GUARDAR)";
 	for (int i = 0; i < sizeof(marco); i++)
 	{
 		cout << marco[i];
 		gotoxy(0 + i, 24);
 	}
+	gotoxy(X, Y);
 }
 
 void nuevoArchivo::MostrarArchivo() {
@@ -230,6 +230,9 @@ void nuevoArchivo::archivo() {
 				Reemplazar(Pila.CtrY->getBus(), Pila.CtrY->getRem());
 				Pila.PopY();
 			}
+		}
+		else if (ctr == 13) {//ASCII   CONTROL CODES		^S
+			Guardar();
 		}
 		else if (ctr == 3) {//ASCII   CONTROL CODES		^c
 			Reportes();
@@ -296,6 +299,43 @@ void nuevoArchivo::archivo() {
 				MostrarArchivo();
 }
 
+
+void nuevoArchivo::Guardar() {
+	system("cls");
+	ofstream repCircular;
+
+	string nombre;
+	cin >> nombre; 
+
+	repCircular.open(nombre.c_str(), ios::out);
+
+	if (repCircular.fail()) {
+		cout << "ERROR ARCHIVO NO CREADO" << endl;
+	}
+	else
+	{
+		string cuerpo;
+		nuevoArchivo* aux = first;
+
+		if (aux != NULL)
+		{
+			cuerpo += aux->letra;
+			aux->post;
+		}
+
+		repCircular << cuerpo;
+		repCircular.close();
+
+
+
+		cout << endl << "REPORTE EJECUTADO" << endl;
+	}
+
+	system("cls");
+
+	Marco();
+	MostrarPantalla();
+}
 
 
 void nuevoArchivo::BorrarPalabra(int _X, int _Y) {
@@ -529,6 +569,9 @@ void nuevoArchivo::AbrirArchivo(string _texto) {
 void nuevoArchivo::Reportes() {
 	ReporteLDE();
 	Pila.ReportePila();
+
+	Marco();
+	MostrarPantalla();
 }
 
 
