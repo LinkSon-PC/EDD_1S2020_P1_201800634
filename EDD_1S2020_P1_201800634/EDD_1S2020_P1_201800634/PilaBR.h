@@ -30,6 +30,8 @@ public:
 	void PushZ(string _bus, string _rem);
 	void PopZ();
 
+	void ReportePila();
+
 	string getBus(void);
 	string getRem(void);
 };
@@ -103,4 +105,89 @@ string PilaBR::getBus() {
 
 string PilaBR::getRem() {
 	return this->remplazar;
+}
+
+void PilaBR::ReportePila() {
+	ofstream repPilaY;
+	repPilaY.open("repLOGY.txt", ios::out);
+
+	if (repPilaY.fail()) {
+		cout << "ERROR ARCHIVO NO ENCONTRADO" << endl;
+	}
+	else
+	{
+		PilaBR* aux = CtrY;
+
+		if (aux != NULL)
+		{
+			repPilaY << "digraph Y {rankdir =LR; style = filled; bgcolor = white; color = green; node[style = filled, color = green, shape = tripleoctagon];";
+			while (aux != NULL)
+			{
+				repPilaY << "op" << &*aux << "[label = \" " << " PALABRA BUSCADA: " << aux->buscar << "\\n" << " REMPLAZADO POR: " << aux->remplazar << "\\n" << " ESTADO: NO REVERTIDO" << "\\n" << " PALABRE: null" << "\\n" << " POSICION: null" << "\"];";
+				repPilaY << "op" << &*aux << "->" << "op" << &*(aux->post) << "[arrowhead = halfopen color = blue];";
+				aux = aux->post;
+			}
+			repPilaY << "}";
+		}
+
+
+
+		aux = CtrZ;
+
+		if (aux != NULL)
+		{
+			repPilaY << "digraph Z {rankdir =LR; style = filled; bgcolor = white; color = red; node[style = filled, color = red, shape = tripleoctagon];";
+			while (aux != NULL)
+			{
+				repPilaY << "op" << &*aux << "[label = \" " << " PALABRA BUSCADA: " << aux->buscar << "\\n" << " REMPLAZADO POR: " << aux->remplazar << "\\n" << " ESTADO:REVERTIDO" << "\\n" << " PALABRE: null" << "\\n" << " POSICION: null" << "\"];";
+				repPilaY << "op" << &*aux << "->" << "op" << &*(aux->post) << "[arrowhead = halfopen color = blue];";
+				aux = aux->post;
+			}
+			repPilaY << "}";
+		}
+
+		repPilaY.close();
+
+		char  dotT[] = "dot -Tjpg repLOGY.txt -o repLOGY.jpg";
+		system(dotT);
+		char  dotI[] = "repLOGY.jpg";
+		system(dotI);
+
+
+		cout << endl << "REPORTE EJECUTADO" << endl;
+	}
+
+
+	ofstream repPilaZ;
+	repPilaZ.open("repLOGZ.txt", ios::out);
+
+	if (repPilaZ.fail()) {
+		cout << "ERROR ARCHIVO NO ENCONTRADO" << endl;
+	}
+	else
+	{
+		PilaBR* aux = CtrZ;
+
+		if (aux != NULL)
+		{
+			repPilaZ << "digraph Z {rankdir =LR; style = filled; bgcolor = white; color = red; node[style = filled, color = red, shape = tripleoctagon];";
+			while (aux != NULL)
+			{
+				repPilaZ << "op" << &*aux << "[label = \" " << " PALABRA BUSCADA: " << aux->buscar << "\\n" << " REMPLAZADO POR: " << aux->remplazar << "\\n" << " ESTADO:REVERTIDO" << "\\n" << " PALABRE: null" << "\\n" << " POSICION: null" << "\"];";
+				repPilaZ << "op" << &*aux << "->" << "op" << &*(aux->post) << "[arrowhead = halfopen color = blue];";
+				aux = aux->post;
+			}
+			repPilaZ << "}";
+		}
+
+		repPilaZ.close();
+
+		char  dotT[] = "dot -Tjpg repLOGZ.txt -o repLOGZ.jpg";
+		system(dotT);
+		char  dotI[] = "repLOGZ.jpg";
+		system(dotI);
+
+
+		cout << endl << "REPORTE EJECUTADO" << endl;
+	}
 }

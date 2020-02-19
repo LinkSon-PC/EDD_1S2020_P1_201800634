@@ -40,6 +40,10 @@ public:
 	
 	void AbrirArchivo(string);
 
+	void Reportes();
+	void ReporteLDE();
+	void ReportePila();
+
 	//void borrarLetra(void);
 };
 
@@ -228,7 +232,7 @@ void nuevoArchivo::archivo() {
 			}
 		}
 		else if (ctr == 3) {//ASCII   CONTROL CODES		^c
-
+			Reportes();
 		}
 		else
 		{
@@ -520,3 +524,71 @@ void nuevoArchivo::AbrirArchivo(string _texto) {
 	MostrarPantalla();
 	archivo();
 }
+
+
+void nuevoArchivo::Reportes() {
+	ReporteLDE();
+	Pila.ReportePila();
+}
+
+
+void nuevoArchivo::ReporteLDE() {
+
+	ofstream repCircular;
+	repCircular.open("repLDE.txt", ios::out);
+
+	if (repCircular.fail()) {
+		cout << "ERROR ARCHIVO NO ENCONTRADO" << endl;
+	}
+	else
+	{
+		repCircular << "digraph G {rankdir =LR; style = filled; bgcolor = white; color = lightgrey; node[style = filled, color = red, shape = tripleoctagon];";
+		nuevoArchivo* aux = first;
+
+		if (aux != NULL)
+		{
+			repCircular << "NULL1" << &*aux << "[label = \" " << "NULL" << "\"];";
+			repCircular << "NULL1" << "->" << "op" << &*aux << "[arrowhead = halfopen color = blue];";
+			while (aux != NULL)
+			{
+				repCircular << "op" << &*aux << "[label = \" " << aux->letra << "\"];";
+				repCircular << "op" << &*aux << "->" << "op" << &*(aux->post) << "[arrowhead = halfopen color = blue];";
+				aux = aux->post;
+			}
+		}
+
+		nuevoArchivo* aux2 = last;
+
+		if (aux != NULL)
+		{
+			repCircular << "NULL2" << &*aux << "[label = \" " << "NULL" << "\"];";
+			repCircular << "NULL2" << "->" << "op" << &*aux << "[arrowhead = halfopen color = blue];";
+			while (aux != NULL)
+			{
+				repCircular << "op" << &*aux << "[label = \" " << aux->letra << "\"];";
+				repCircular << "op" << &*aux << "->" << "op" << &*(aux->post) << "[arrowhead = halfopen color = blue];";
+				aux = aux->prev;
+			}
+		}
+
+
+
+
+
+		repCircular << "}";
+
+		repCircular.close();
+
+		char  dotT[] = "dot -Tjpg repLDE.txt -o repLDE.jpg";
+		system(dotT);
+		char  dotI[] = "repLDE.jpg";
+		system(dotI);
+
+
+		cout << endl << "REPORTE EJECUTADO" << endl;
+	}
+
+
+}
+
+

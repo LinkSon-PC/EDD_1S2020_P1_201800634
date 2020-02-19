@@ -1,8 +1,8 @@
 ﻿  EDD_1S2020_P1_201800634.cpp
-C:\Users\Home\Documents\GitHub\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\nuevoArchivo.h(365,20): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\Home\Documents\GitHub\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\nuevoArchivo.h(402,21): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\Home\Documents\GitHub\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\nuevoArchivo.h(419,26): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\Home\Documents\GitHub\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\nuevoArchivo.h(439,26): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\Home\Documents\GitHub\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\nuevoArchivo.h(505,20): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\Home\Documents\GitHub\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\nuevoArchivo.h(369,20): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\Home\Documents\GitHub\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\nuevoArchivo.h(406,21): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\Home\Documents\GitHub\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\nuevoArchivo.h(423,26): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\Home\Documents\GitHub\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\nuevoArchivo.h(443,26): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\Home\Documents\GitHub\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\nuevoArchivo.h(509,20): warning C4018:  '<': no coinciden signed/unsigned
 C:\Users\Home\Documents\GitHub\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634.cpp(119,8): warning C4101:  '_tecla': variable local sin referencia
   EDD_1S2020_P1_201800634.vcxproj -> C:\Users\Home\Documents\GitHub\EDD_1S2020_P1_201800634\EDD_1S2020_P1_201800634\Debug\EDD_1S2020_P1_201800634.exe
